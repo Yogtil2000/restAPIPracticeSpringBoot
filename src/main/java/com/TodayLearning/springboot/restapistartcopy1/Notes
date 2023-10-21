@@ -1,0 +1,39 @@
+If you want to use the quick and dirty test to show the things to the customers-----> use the "spring data rest"
+before implementing the spring data rest just implement the spring data jpa 
+
+====> If you just added the spring-boot-starter-data-jpa and spring-boot-starter-data-rest 
+and run the application then its "faild"===> because you didn't added any datasource
+
+ERROR description :
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+TO solve this add the dependency of H2 in the pom.xml
+
+<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>   ============> added this because , only want to be available at the rumtime , this don't want to be part of jar file
+		</dependency>
+		
+		spring.datasource.url=jdbc:h2:mem:testdb ======> to provide the static source 
+		
+--------------------------------------------------------------------------------------------------------------------------------------------
+"CommandLineRunner":   it is class , need to managed by spring so @Component and it implements CommandLineRunner interface (make sure take our class name something different other than CommandLineRunner)
+When you want to perform the operations at the startup of the application then use the concept of the CommandLineRunner 
+so using which all the database operations are performed at the startup of application which using the entity of yours 
+
+--------------------------------------------------------------------
+spring.jpa.show-sql=true     ====> add this to see the sql queries running behind the scenes 
+==================================================================================================
+
+
+
+
+
+		
+		
