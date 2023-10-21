@@ -36,13 +36,18 @@ public class UserDetailsCommandLineRunner implements CommandLineRunner{
 		
 		
 		
-		List<UserDetails> users=repository.findAll();
-		users.forEach(user->logger.info(user.toString()));  //Note: for this step an empty constructor of userdetais needed there 
+//		List<UserDetails> users=repository.findAll();
+//		users.forEach(user->logger.info(user.toString()));  //Note: for this step an empty constructor of userdetais needed there 
 	/* 
 	 If you didn't have default constructor then following issue comes : hibernate 
 	 
 	 Caused by: org.hibernate.InstantiationException: No default constructor for entity
 	 */
+		
+		List<UserDetails> listOfUsersDetails=repository.findByRole("Admin");
+		listOfUsersDetails.forEach(user->logger.info(user.toString()));
+		
+		
 	
 	}
 

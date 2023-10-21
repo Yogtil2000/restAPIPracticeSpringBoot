@@ -30,7 +30,32 @@ so using which all the database operations are performed at the startup of appli
 --------------------------------------------------------------------
 spring.jpa.show-sql=true     ====> add this to see the sql queries running behind the scenes 
 ==================================================================================================
+Spring data JPA provides a way basically to add the userDefined or Custom methods as well 
+    just need to make the proper definition of that method into the interface where we extending the JpaRepository 
+       and then call that method from the commandLineRunner 
+       
+       
+       Noticed one thing that even if the "@Repository " not written on the interface which is extending the JpaRepository still everything is working ?????
+======================================================================================================
+Using the spring data Rest we are able to automatically expoosed the APIs there
+step 1) Need to add the starter for the spring data rest 
+step 2) Need to create the interface another as the repository 
 
+     now when you hit http://localhost:8080    then you see based on the entity name the URL exposing has been started 
+     
+     like as below :
+     
+     {
+			"_links": {
+			"userDetailses": {
+						"href": "http://localhost:8080/userDetailses{?page,size,sort}",
+						"templated": true
+			},
+			"profile": {
+			         "href": "http://localhost:8080/profile"
+			}
+			}
+      }       
 
 
 
